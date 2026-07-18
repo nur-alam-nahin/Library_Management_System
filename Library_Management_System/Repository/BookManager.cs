@@ -58,12 +58,53 @@ namespace Library_Management_System.Repository
 
         public List<Books> GetAll()
         {
-            throw new NotImplementedException();
+
+            List<Books> dataList = new List<Books>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT * FROM tbl_book";
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while(reader.Read())
+            {
+                Console.WriteLine($"{reader["Id"]} {reader["Title"]} {reader["Author"]} {reader["Price"]}");
+            }
+
+            return dataList;
+            
         }
 
         public void Update(int Id)
         {
-            throw new NotImplementedException();
+            Books books = new Books();
+
+            books.Title = "HTML CSS";
+            books.Author = "Shuvo";
+            books.Price = 800;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"UPDATE tbl_book set Title = @Title , Author = @Author ,Price = @Price where Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, connection); cmd.Parameters.AddWithValue("Id", Id);
+                cmd.Parameters.AddWithValue("Title", books.Title);
+                cmd.Parameters.AddWithValue("Author", books.Author);
+                cmd.Parameters.AddWithValue("Price", books.Price);
+
+
+                connection.Open();
+                int n = cmd.ExecuteNonQuery();
+                if (n > 0)
+                {
+                    Console.WriteLine("Book update successfully");
+                }
+                connection.Close();
+            }
         }
     }
 }

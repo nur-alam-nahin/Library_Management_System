@@ -34,8 +34,8 @@ namespace Library_Management_System
                 Console.WriteLine("-----Menu-----");
                 Console.WriteLine("1. Add");
                 Console.WriteLine("2. Delete");
-                Console.WriteLine("3. Diposite");
-                Console.WriteLine("4. Withdrow");
+                Console.WriteLine("3. Update");
+                Console.WriteLine("4. ALL Book List");
                 Console.WriteLine("5. Delete Account");
                 Console.WriteLine("6. Logout");
                 Console.WriteLine();
@@ -59,12 +59,14 @@ namespace Library_Management_System
 
                     case 3:
 
-                      
 
+                        books.Id = Convert.ToInt32(Console.ReadLine());
+                        bookManager.Update(books.Id);
                         break;
 
                     case 4:
 
+                        bookManager.GetAll();
                         break;
 
                     case 5:
