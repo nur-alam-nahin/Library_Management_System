@@ -15,14 +15,17 @@ namespace Library_Management_System
         {
 
             Books books = new Books();
+            Student student = new Student();
 
             books.Title = "Book of c#";
             books.Author = "Nahin";
             books.Price = 1200;
 
             BookManager bookManager = new BookManager();
+            StudentManager studentManager = new StudentManager();
 
-            bookManager.Add(books);
+            //bookManager.Add(books);
+            //studentManager.Add(student);
 
 
 
@@ -30,52 +33,118 @@ namespace Library_Management_System
             int num;
             do
             {
-                Console.WriteLine();
-                Console.WriteLine("-----Menu-----");
-                Console.WriteLine("1. Add");
-                Console.WriteLine("2. Delete");
-                Console.WriteLine("3. Update");
-                Console.WriteLine("4. ALL Book List");
-                Console.WriteLine("5. Delete Account");
-                Console.WriteLine("6. Logout");
-                Console.WriteLine();
+                Console.WriteLine("1. Book");
+                Console.WriteLine("2. Student");
+                Console.WriteLine("3. Exit");
                 Console.Write("Enter your Choice = ");
                 num = Convert.ToInt32(Console.ReadLine());
 
-                switch (num)
+                if(num == 1)
                 {
-                    case 1:
+                    do
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("-----Menu-----");
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Delete");
+                        Console.WriteLine("3. Update");
+                        Console.WriteLine("4. ALL Book List");
+                        Console.WriteLine("6. Back");
+                        Console.WriteLine();
+                        Console.Write("Enter your Choice = ");
+                        num = Convert.ToInt32(Console.ReadLine());
 
-                        bookManager.Add(books);
+                        switch (num)
+                        {
+                            case 1:
 
-                        break;
+                                bookManager.Add(books);
+                               
 
-                    case 2:
+                                break;
 
-                        books.Id = Convert.ToInt32(Console.ReadLine());
+                            case 2:
 
-                        bookManager.Delete(books.Id);
-                        break;
+                                books.Id = Convert.ToInt32(Console.ReadLine());
 
-                    case 3:
+                                bookManager.Delete(books.Id);
+                                break;
+
+                            case 3:
 
 
-                        books.Id = Convert.ToInt32(Console.ReadLine());
-                        bookManager.Update(books.Id);
-                        break;
+                                books.Id = Convert.ToInt32(Console.ReadLine());
+                                bookManager.Update(books.Id);
+                                break;
 
-                    case 4:
+                            case 4:
 
-                        bookManager.GetAll();
-                        break;
+                                bookManager.GetAll();
+                                break;
 
-                    case 5:
+                            case 5:
 
-                
-                        break;
+
+                                break;
+                        }
+                    } while (num != 5);
+                   
                 }
+                else if(num == 2)
+                {
+                    do
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("-----Menu-----");
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Delete");
+                        Console.WriteLine("3. Update");
+                        Console.WriteLine("4. ALL Book List");
+                        Console.WriteLine("6. Back");
+                        Console.WriteLine();
+                        Console.Write("Enter your Choice = ");
+                        num = Convert.ToInt32(Console.ReadLine());
+
+                        switch (num)
+                        {
+                            case 1:
+
+                                //bookManager.Add(books);
+                                studentManager.Add(student);
+
+                                break;
+
+                            case 2:
+
+                                student.Id = Convert.ToInt32(Console.ReadLine());
+
+                                studentManager.Delete(student.Id);
+                                break;
+
+                            case 3:
+
+
+                                student.Id = Convert.ToInt32(Console.ReadLine());
+                                studentManager.Update(student.Id);
+                                break;
+
+                            case 4:
+
+                                studentManager.GetAll();
+                                break;
+
+                            case 5:
+
+
+                                break;
+                        }
+                    } while (num != 6);
+                }
+
+
+               
             }
-            while (num != 6);
+            while (num != 3);
 
         }
     }

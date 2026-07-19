@@ -10,8 +10,8 @@ namespace Library_Management_System.Repository
     public interface IStudentRepository
     {
         void Add(Student student);
-        void Update(int id);
-        void Delete(int id);
+        void Update(int Id);
+        void Delete(int Id);
         List<Student> GetAll();
     }
 }

@@ -73,7 +73,15 @@ namespace Library_Management_System.Repository
 
             while(reader.Read())
             {
-                Console.WriteLine($"{reader["Id"]} {reader["Title"]} {reader["Author"]} {reader["Price"]}");
+                Books books = new Books();
+
+                books.Id = Convert.ToInt32(reader["Id"]);
+                books.Title = Convert.ToString(reader["Title"]);
+                books.Author = Convert.ToString(reader["Author"]);
+                books.Price = Convert.ToDouble(reader["Price"]);
+
+                dataList.Add(books);
+                Console.WriteLine($"{books.Id} {books.Title} {books.Author} {books.Price}");
             }
 
             return dataList;
@@ -91,7 +99,8 @@ namespace Library_Management_System.Repository
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"UPDATE tbl_book set Title = @Title , Author = @Author ,Price = @Price where Id = @Id";
-                SqlCommand cmd = new SqlCommand(query, connection); cmd.Parameters.AddWithValue("Id", Id);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("Id", Id);
                 cmd.Parameters.AddWithValue("Title", books.Title);
                 cmd.Parameters.AddWithValue("Author", books.Author);
                 cmd.Parameters.AddWithValue("Price", books.Price);
