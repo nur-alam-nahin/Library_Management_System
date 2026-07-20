@@ -96,9 +96,14 @@ namespace Library_Management_System.Repository
           
             Student student = new Student();
 
-            student.Name = "Shuvo";
-            student.Phone = "230562935";
-            student.Address = "Dhaka";
+            Console.Write("Student Name: ");
+            student.Name = Convert.ToString(Console.ReadLine());
+
+            Console.Write("Student Phone: ");
+            student.Phone = Convert.ToString(Console.ReadLine());
+
+            Console.Write("Student Address: ");
+            student.Address = Convert.ToString(Console.ReadLine());
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

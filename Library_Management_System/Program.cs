@@ -16,10 +16,9 @@ namespace Library_Management_System
 
             Books books = new Books();
             Student student = new Student();
-
-            books.Title = "Book of c#";
-            books.Author = "Nahin";
-            books.Price = 1200;
+            
+             
+         
 
             BookManager bookManager = new BookManager();
             StudentManager studentManager = new StudentManager();
@@ -57,6 +56,15 @@ namespace Library_Management_System
                         switch (num)
                         {
                             case 1:
+                                Console.Write("Book Title: ");
+                                books.Title = Convert.ToString(Console.ReadLine());
+
+                                Console.Write("Book Author: ");
+                                books.Author = Convert.ToString(Console.ReadLine());
+
+                                Console.Write("Book Price: ");
+                                books.Price = Convert.ToDouble(Console.ReadLine());
+
 
                                 bookManager.Add(books);
                                
@@ -65,6 +73,7 @@ namespace Library_Management_System
 
                             case 2:
 
+                                Console.Write("Enter Id: ");
                                 books.Id = Convert.ToInt32(Console.ReadLine());
 
                                 bookManager.Delete(books.Id);
@@ -72,7 +81,7 @@ namespace Library_Management_System
 
                             case 3:
 
-
+                                Console.Write("Enter Id: ");
                                 books.Id = Convert.ToInt32(Console.ReadLine());
                                 bookManager.Update(books.Id);
                                 break;
@@ -99,7 +108,7 @@ namespace Library_Management_System
                         Console.WriteLine("1. Add");
                         Console.WriteLine("2. Delete");
                         Console.WriteLine("3. Update");
-                        Console.WriteLine("4. ALL Book List");
+                        Console.WriteLine("4. ALL Student List");
                         Console.WriteLine("6. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
@@ -109,13 +118,21 @@ namespace Library_Management_System
                         {
                             case 1:
 
-                                //bookManager.Add(books);
+                                Console.Write("Student Name: ");
+                                student.Name = Convert.ToString(Console.ReadLine());
+
+                                Console.Write("Student Phone: ");
+                                student.Phone = Convert.ToString(Console.ReadLine());
+
+                                Console.Write("Student Address: ");
+                                student.Address = Convert.ToString(Console.ReadLine());
+                                
                                 studentManager.Add(student);
 
                                 break;
 
                             case 2:
-
+                                Console.Write("Enter Id: ");
                                 student.Id = Convert.ToInt32(Console.ReadLine());
 
                                 studentManager.Delete(student.Id);
@@ -123,7 +140,7 @@ namespace Library_Management_System
 
                             case 3:
 
-
+                                Console.Write("Enter Id: ");
                                 student.Id = Convert.ToInt32(Console.ReadLine());
                                 studentManager.Update(student.Id);
                                 break;

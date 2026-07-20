@@ -92,9 +92,14 @@ namespace Library_Management_System.Repository
         {
             Books books = new Books();
 
-            books.Title = "HTML CSS";
-            books.Author = "Shuvo";
-            books.Price = 800;
+            Console.Write("Title : ");
+            books.Title = Convert.ToString(Console.ReadLine());
+
+            Console.Write("Author : ");
+            books.Author = Convert.ToString(Console.ReadLine());
+
+            Console.Write("price : ");
+            books.Price = Convert.ToDouble(Console.ReadLine());
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
