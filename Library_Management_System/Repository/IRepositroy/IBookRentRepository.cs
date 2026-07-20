@@ -9,7 +9,7 @@ namespace Library_Management_System.Repository.IRepositroy
 {
     public interface IBookRentRepository
     {
-        void Add();
+        void Add(BookRent bookRent);
 
         void Update(int Id);
 

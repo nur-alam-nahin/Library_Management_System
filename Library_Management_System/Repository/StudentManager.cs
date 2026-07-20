@@ -16,9 +16,7 @@ namespace Library_Management_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                student.Name = "Nahin";
-                student.Phone = "230562935";
-                student.Address = "DHaka";
+                
                 string query = @"insert into tbl_student(Name,Phone,Address) values(@Name,@Phone,@Address)";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("Name", student.Name);

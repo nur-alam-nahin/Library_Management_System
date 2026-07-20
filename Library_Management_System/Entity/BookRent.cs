@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library_Management_System.Entity
 {
-    public class BookRent : BaseClass
+    public class BookRent
     {
+        public int studentId;
+        public int bookId;
         public int duration;
-        public double bookRent;
+        public double RentCost;
     }
 }
