@@ -48,7 +48,9 @@
     <Compile Include="Entity\Books.cs" />
     <Compile Include="Entity\Student.cs" />
     <Compile Include="Entity\BookRent.cs" />
+    <Compile Include="LMS_BLL\BookManagerBll.cs" />
     <Compile Include="LMS_BLL\BookRentBll.cs" />
+    <Compile Include="LMS_BLL\StudentManagerBll.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookManager.cs" />

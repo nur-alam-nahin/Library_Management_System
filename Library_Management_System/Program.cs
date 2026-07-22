@@ -15,20 +15,9 @@ namespace Library_Management_System
         static void Main(string[] args)
         {
 
-            Books books = new Books();
-            Student student = new Student();
-            
-             
-         
 
-            BookManager bookManager = new BookManager();
-            StudentManager studentManager = new StudentManager();
-
-            //bookManager.Add(books);
-            //studentManager.Add(student);
-
-
-
+            BookManagerBll bookManagerBll = new BookManagerBll();
+            StudentManagerBll studentManagerBll = new StudentManagerBll();
 
             int num;
             do
@@ -59,39 +48,27 @@ namespace Library_Management_System
                         switch (num)
                         {
                             case 1:
-                                Console.Write("Book Title: ");
-                                books.Title = Convert.ToString(Console.ReadLine());
 
-                                Console.Write("Book Author: ");
-                                books.Author = Convert.ToString(Console.ReadLine());
-
-                                Console.Write("Book Price: ");
-                                books.Price = Convert.ToDouble(Console.ReadLine());
-
-
-                                bookManager.Add(books);
-                               
+                                bookManagerBll.bookAdd();
 
                                 break;
 
                             case 2:
 
-                                Console.Write("Enter Id: ");
-                                books.Id = Convert.ToInt32(Console.ReadLine());
+                                bookManagerBll.bookDelete();
 
-                                bookManager.Delete(books.Id);
                                 break;
 
                             case 3:
 
-                                Console.Write("Enter Id: ");
-                                books.Id = Convert.ToInt32(Console.ReadLine());
-                                bookManager.Update(books.Id);
+                                bookManagerBll.bookUpdate();
+
                                 break;
 
                             case 4:
 
-                                bookManager.GetAll();
+                                bookManagerBll.bookGetAll();
+
                                 break;
 
                             case 5:
@@ -121,36 +98,26 @@ namespace Library_Management_System
                         {
                             case 1:
 
-                                Console.Write("Student Name: ");
-                                student.Name = Convert.ToString(Console.ReadLine());
-
-                                Console.Write("Student Phone: ");
-                                student.Phone = Convert.ToString(Console.ReadLine());
-
-                                Console.Write("Student Address: ");
-                                student.Address = Convert.ToString(Console.ReadLine());
-                                
-                                studentManager.Add(student);
+                                studentManagerBll.studentAdd();
 
                                 break;
 
                             case 2:
-                                Console.Write("Enter Id: ");
-                                student.Id = Convert.ToInt32(Console.ReadLine());
 
-                                studentManager.Delete(student.Id);
+                                studentManagerBll.studentDelete();
+
                                 break;
 
                             case 3:
 
-                                Console.Write("Enter Id: ");
-                                student.Id = Convert.ToInt32(Console.ReadLine());
-                                studentManager.Update(student.Id);
+                                studentManagerBll.studentUpdate();
+
                                 break;
 
                             case 4:
-                                Console.WriteLine("------ Student List -----");
-                                studentManager.GetAll();
+
+                                studentManagerBll.studentGetAll();
+
                                 break;
 
                             case 5:
