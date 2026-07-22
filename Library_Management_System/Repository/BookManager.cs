@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Library_Management_System.Entity;
+using Library_Management_System.Repository.DataBaseHelper;
 
 namespace Library_Management_System.Repository
 {
-    class BookManager : IBookRepository
+    class BookManager : DBHelper , IBookRepository
     {
-        private string connectionString = "Server=.;Database=lms_DB;Integrated Security = True;";
+       
 
         public void Add(Books books)
         {

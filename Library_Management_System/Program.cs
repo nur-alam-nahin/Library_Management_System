@@ -1,4 +1,5 @@
 ﻿using Library_Management_System.Entity;
+using Library_Management_System.LMS_BLL;
 using Library_Management_System.Repository;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,11 @@ namespace Library_Management_System
             int num;
             do
             {
+                Console.WriteLine();
                 Console.WriteLine("1. Book");
                 Console.WriteLine("2. Student");
-                Console.WriteLine("3. Exit");
+                Console.WriteLine("3. Book Rent");
+                Console.WriteLine("4. Exit");
                 Console.Write("Enter your Choice = ");
                 num = Convert.ToInt32(Console.ReadLine());
 
@@ -96,7 +99,7 @@ namespace Library_Management_System
 
                                 break;
                         }
-                    } while (num != 5);
+                    } while (num != 6);
                    
                 }
                 else if(num == 2)
@@ -157,11 +160,17 @@ namespace Library_Management_System
                         }
                     } while (num != 6);
                 }
+                else if(num == 3)
+                {
+                    BookRentBll bookRentBll = new BookRentBll();
+
+                    bookRentBll.rent();
+                }
 
 
                
             }
-            while (num != 3);
+            while (num != 4);
 
         }
     }

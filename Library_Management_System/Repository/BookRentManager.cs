@@ -30,11 +30,11 @@ namespace Library_Management_System.Repository
                 int n = cmd.ExecuteNonQuery();
                 if (n > 0)
                 {
-                    Console.WriteLine("Student Add successfully");
+                    Console.WriteLine("Info Add successfully");
                 }
                 else
                 {
-                    Console.WriteLine("Studnet Add Failed");
+                    Console.WriteLine("Info Add Failed");
                 }
                 connection.Close();
 
@@ -44,12 +44,46 @@ namespace Library_Management_System.Repository
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"DELETE FROM tbl_bookRent where Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("Id", Id);
+
+                connection.Open();
+
+                int n = cmd.ExecuteNonQuery();
+
+                if(n > 0)
+                {
+                    Console.WriteLine("Info Delete successfully");
+                }
+                connection.Close();
+            }
         }
 
         public List<BookRent> GetAll()
         {
-            throw new NotImplementedException();
+            List<BookRent> dataList = new List<BookRent>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "select * from tbl_bookRent";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+
+                }
+            }
+
+            return dataList;
         }
 
         public void Update(int Id)

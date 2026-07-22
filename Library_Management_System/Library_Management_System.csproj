@@ -53,7 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BookManager.cs" />
     <Compile Include="Repository\BookRentManager.cs" />
-    <Compile Include="Repository\DataBaseConnection.cs" />
+    <Compile Include="Repository\DataBaseHelper\DBHelper.cs" />
     <Compile Include="Repository\IRepositroy\IBookRentRepository.cs" />
     <Compile Include="Repository\IRepositroy\IBookRepository.cs" />
     <Compile Include="Repository\IRepositroy\IStudentRepository.cs" />

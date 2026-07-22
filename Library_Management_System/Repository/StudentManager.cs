@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Library_Management_System.Entity;
+using Library_Management_System.Repository.DataBaseHelper;
 
 namespace Library_Management_System.Repository
 {
-    public class StudentManager : IStudentRepository
+    class StudentManager : DBHelper , IStudentRepository
     {
-        private string connectionString = "Server=.;Database=lms_DB;Integrated Security = True;";
+        //private string connectionString = "Server=.;Database=lms_DB;Integrated Security = True;";
 
         public void Add(Student student)
         {
