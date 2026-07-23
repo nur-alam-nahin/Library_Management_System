@@ -8,6 +8,6 @@ namespace Library_Management_System.Entity
 {
     public class Admin : BaseClass
     {
-        public string EmployeeCode { get; set; }
+        public int EmployeeId { get; set; }
     }
 }
